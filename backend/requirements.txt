@@ -1,0 +1,8 @@
+Flask
+Flask-SQLAlchemy
+Flask-Cors
+# cloudinary
+Flask-Babel
+mysql-connector-python
+pymysql
+python-dotenv

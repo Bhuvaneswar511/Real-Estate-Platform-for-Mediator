@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Real Estate Backend') }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .language-selector {
+            float: right;
+            margin-bottom: 20px;
+        }
+        .language-selector a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 5px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .language-selector a:hover {
+            background-color: #0056b3;
+        }
+        .language-selector a.active {
+            background-color: #28a745;
+        }
+        .clear {
+            clear: both;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .info-box {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .current-lang {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <a href="{{ url_for('set_language', language='en') }}" 
+               class="{{ 'active' if get_locale() == 'en' else '' }}">English</a>
+            <a href="{{ url_for('set_language', language='te') }}" 
+               class="{{ 'active' if get_locale() == 'te' else '' }}">తెలుగు</a>
+        </div>
+        <div class="clear"></div>
+        
+        <h1>{{ _('Real Estate Backend API') }}</h1>
+        
+        <div class="info-box">
+            <p><strong>{{ _('Current Language') }}:</strong> <span class="current-lang">{{ config.LANGUAGES[get_locale()] }}</span></p>
+            <p><strong>{{ _('API Status') }}:</strong> {{ _('Running Successfully') }}</p>
+        </div>
+        
+        <h2>{{ _('Available API Endpoints') }}</h2>
+        <ul class="feature-list">
+            <li><strong>GET /</strong> - {{ _('Backend status check') }}</li>
+            <li><strong>GET /languages</strong> - {{ _('Get supported languages') }}</li>
+            <li><strong>GET /set-language/&lt;lang&gt;</strong> - {{ _('Set application language') }}</li>
+            <li><strong>POST /properties</strong> - {{ _('Add new property') }}</li>
+            <li><strong>GET /properties</strong> - {{ _('Get all properties with filters') }}</li>
+        </ul>
+        
+        <h2>{{ _('Features') }}</h2>
+        <ul class="feature-list">
+            <li>{{ _('Multi-language support (English and Telugu)') }}</li>
+            <li>{{ _('Property management system') }}</li>
+            <li>{{ _('Image upload with Cloudinary') }}</li>
+            <li>{{ _('Advanced search and filtering') }}</li>
+            <li>{{ _('RESTful API design') }}</li>
+        </ul>
+        
+        <div class="info-box">
+            <p>{{ _('This is a demonstration of the internationalization functionality. The application now supports both English and Telugu languages.') }}</p>
+        </div>
+    </div>
+</body>
+</html>
